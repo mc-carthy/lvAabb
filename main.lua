@@ -16,6 +16,23 @@ end
 
 function love.update(dt)
     mouseBox.x, mouseBox.y = love.mouse.getPosition()
+
+    local dx, dy = 0, 0
+    if love.keyboard.isDown('a') or love.keyboard.isDown('left') then
+        dx = dx - keyboardBox.speed * dt
+    end
+    if love.keyboard.isDown('d') or love.keyboard.isDown('right') then
+        dx = dx + keyboardBox.speed * dt
+    end
+    if love.keyboard.isDown('w') or love.keyboard.isDown('up') then
+        dy = dy - keyboardBox.speed * dt
+    end
+    if love.keyboard.isDown('s') or love.keyboard.isDown('down') then
+        dy = dy + keyboardBox.speed * dt
+    end
+
+    keyboardBox.x = keyboardBox.x + dx
+    keyboardBox.y = keyboardBox.y + dy
 end
 
 function love.draw()
