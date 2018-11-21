@@ -45,7 +45,6 @@ function love.draw()
     love.graphics.rectangle('line', mouseBox.x - mouseBox.size / 2, mouseBox.y - mouseBox.size / 2, mouseBox.size, mouseBox.size)
     
     love.graphics.setColor(0.5, 0, 0, 1)
-    love.graphics.rectangle('line', keyboardBox.x, keyboardBox.y, keyboardBox.size, keyboardBox.size)
     if keyboardBox.x < mouseBox.x + mouseBox.size / 2 then
         love.graphics.setColor(0, 0.5, 0, 1)
     end
@@ -69,6 +68,10 @@ function love.draw()
     end
     love.graphics.line(0, keyboardBox.y + keyboardBox.size, love.graphics.getWidth(), keyboardBox.y + keyboardBox.size)
     love.graphics.setColor(0.5, 0, 0, 1)
+
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.setLineWidth(1)
+    love.graphics.rectangle('line', keyboardBox.x, keyboardBox.y, keyboardBox.size, keyboardBox.size)
 end
 
 function love.keypressed(key)
